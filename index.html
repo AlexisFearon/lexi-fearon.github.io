@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --white: #ffffff;
+            --off-white: #fafafa;
+            --light-gray: #f5f5f5;
+            --medium-gray: #8892b0;
+            --dark-gray: #2d3748;
+            --navy-blue: #1a365d;
+            --accent-blue: #4299e1;
+            --accent-purple: #805ad5;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--light-gray);
+            z-index: 100;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--navy-blue);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 4rem;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .hero-content h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: var(--accent-blue);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content .description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .profile-image {
+            width: 280px;
+            height: 350px;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--off-white) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+        }
+
+        /* Geometric accent */
+        .geometric-accent {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        /* Resume Section */
+        .resume-section {
+            background: var(--off-white);
+            padding: 4rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 2px;
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .resume-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--accent-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resume-card:nth-child(even) {
+            border-top-color: var(--accent-purple);
+        }
+
+        .resume-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume-card h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.5rem;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+
+        .resume-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .resume-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .resume-item h4 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-meta {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+            color: var(--white);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--white);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            border: 2px solid var(--light-gray);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(66, 153, 225, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .resume-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Subtle animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .resume-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .resume-card:nth-child(1) { animation-delay: 0.1s; }
+        .resume-card:nth-child(2) { animation-delay: 0.2s; }
+        .resume-card:nth-child(3) { animation-delay: 0.3s; }
+        .resume-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Hello, I'm Lexi</h1>
+                <p class="subtitle">Product Manager</p>
+                <p class="description">
+                   I'm a Senior Product Manager with 7+ years of B2B experience focused on data-driven decision making, collaborative team dynamics, and continuous optimizationn— whether I'm expanding post-signup usage by 40%, mentoring junior PMs, or fine-tuning my own wellness journey with tech (h/t to Oura and Natural Cycles).
+                </p>
+            </div>
+            <div class="hero-image">
+                <div class="profile-image">
+                    Your photo goes here
+                    <div class="geometric-accent"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resume" class="resume-section">
+            <div class="container">
+                <h2 class="section-title">Experience & Skills</h2>
+                
+                <div class="resume-grid">
+                    <div class="resume-card">
+                       
+                       <h3>Work Experience &#128208;</h3>
+                        
+                        <div class="resume-item">
+                            <h4>Senior Product Manager</h4>
+                            <div class="resume-meta">Electric AI • September 2022 - Present</div>
+                            <p class="resume-description">
+                                Led 0-1 product offering including application features, employee lifecycle management, and first-time enrollment capabilities. Managed a team of two product owners as direct reports, providing mentorship and guidance. Spearheaded successful integration launches with third party apps and mobile device management, expanding platform capabilities.
+                            </p>
+                        </div>
+                        
+                        <div class="resume-item">
+                            <h4>Data Product Manager</h4>
+                            <div class="resume-meta">Electric AI • March 2021 - September 2022</div>
+                            <p class="resume-description">
+                                Launched comprehensive reporting dashboard suite in self-service platform with hundreds of unique customer visits weekly. 
+                            </p>
+                        </div>
+
+                        <div class="resume-item">
+                            <h4>Senior Product Manager</h4>
+                            <div class="resume-meta">Nautilus Labs • August 2019 - November 2020</div>
+                            <p class="resume-description">
+                                Product owner for Voyage Optimization feature suite, driving 30% increase in customer usage. Conducted in-depth user interviews to deliver contextual weather timeseries feature enhancements.
+                            </p>
+                        </div>
+
+                        <div class="resume-item">
+                            <h4>Data Product Manager</h4>
+                            <div class="resume-meta">Kargo • October 2016 - August 2019</div>
+                            <p class="resume-description">
+                                Launched version 2.0 of analytics interface "Publytics" for internal and external revenue data access. Led technical privacy compliance initiatives including GDPR implementation. Product owner for "Media Activation Service", generating $50K in incremental impressions during beta period. Scaled proprietary mobile web cookie framework by 10x.
+                            </p>
+                        </div>
+
+                        <div class="resume-item">
+                            <h4>Associate Product Manager</h4>
+                            <div class="resume-meta">Kargo • January 2016 - October 2016</div>
+                            <p class="resume-description">
+                                Managed sprint planning, QA requirements, and sales trainings on bi-weekly basis for ad product launches. Owned vertical ad banner format product that surpassed $4 million in revenue. Coordinated cross-functional collaboration.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="resume-card">
+                        <h3>Education & Certifications &#127891;</h3>
+                        <div class="resume-item">
+                            <h4>B.A. in Media Studies, Minor in History</h4>
+                            <div class="resume-meta">Catholic University of America (Washington, DC) | Magna Cum Laude </div>
+                        
+                        </div>
+                        
+                        <div class="resume-item">
+                            <h4>Web Design and Development Certificate</h4>
+                            <div class="resume-meta">George Mason University (Arlington, Virginia)</div>
+                        </div>
+
+        <h3>Featured Speaking & Writing &#x1F4E3;</h3>
+                        <div class="resume-item">
+                            <h4>SXSW 2019 Panelist</h4>
+                            <div class="resume-meta">SXSW 2019 panelist on “Privacy by Design and Directive,” a workshop on GDPR and CCPA to learn what CCPA and GDPR mean for small businesses, and how to build in the required safeguards for the personal info.</div>
+                             <p class="resume-description">
+         <a href="https://schedule.sxsw.com/2019/events/PP92740">
+                        SXSW Panel 
+                    </a>
+                          </p>
+                    <p>
+                    <a href="https://blog.texasbar.com/2019/03/articles/sxsw/sxsw-privacy-by-design-and-by-directive/">
+                        Coverage in the Texas Bar Blog
+                    </a>
+
+                            </p>
+                        </div>
+                        
+                  <div class="resume-item"> 
+                            <h4>More soon!</h4>
+                          <!--  <div class="resume-meta">something about the blog</div>
+                              <p class="resume-description">
+                                Coverage in the Texas Bar Blog of my panel: https://blog.texasbar.com/2019/03/articles/sxsw/sxsw-privacy-by-design-and-by-directive/
+                            </p>-->
+                        </div>
+                        
+
+
+                    </div>
+
+                    <div class="resume-card">
+                        <h3>Technical Skills &#128736;</h3>
+                        <div class="skills">
+                          <span class="skill-tag">Claude</span>
+<span class="skill-tag"> ChatGPT</span>
+<span class="skill-tag"> SQL</span>
+<span class="skill-tag"> Python</span>
+<span class="skill-tag"> Snowflake</span>
+<span class="skill-tag"> Looker</span>
+<span class="skill-tag"> dbt</span>
+<span class="skill-tag"> Datadog</span>
+<span class="skill-tag"> Kibana</span>
+<span class="skill-tag"> Grafana</span>
+<span class="skill-tag"> User Research</span>
+<span class="skill-tag"> A/B Testing</span>
+<span class="skill-tag"> Roadmapping</span>
+<span class="skill-tag"> Agile methodologies</span>
+<span class="skill-tag"> Product Strategy</span>
+<span class="skill-tag"> Jira/Confluence</span>
+<span class="skill-tag"> Slack</span>
+<span class="skill-tag"> Notion</span>
+<span class="skill-tag"> Kustomer</span>
+<span class="skill-tag"> Zendesk</span>
+<span class="skill-tag"> Trello</span>
+<span class="skill-tag"> Miro</span>
+<span class="skill-tag"> Guru</span>
+<span class="skill-tag"> Figma</span>
+<span class="skill-tag"> Google Workspace</span>
+<span class="skill-tag"> Pendo</span>
+<span class="skill-tag"> Privacy compliance</span>
+<span class="skill-tag"> Patent submission</span>
+<span class="skill-tag"> Web and Desktop apps</span>         
+                        </div>
+                    </div>
+
+                    <div class="resume-card">
+                        <h3>Personal Things &#10024;</h3>
+                        
+                        <div class="resume-item">
+                            <h4>Root Cause Healing/Functional Medicine</h4>
+                            <div class="resume-meta"></div>
+                            <p class="resume-description">
+                                I'm passionate about helping others address their chronic conditions with more natural approaches that I have taken to my health conditions. 
+                            </p>
+                        </div>
+                        
+                        <div class="resume-item">
+                            <h4>Kundalini Yoga</h4>
+                            <p class="resume-description">
+                                Completed over 500 hours of yoga practice since discovering this yogic practice in 2018.
+                            </p>
+                        </div>
+
+                         <div class="resume-item">
+                            <h4>Nature</h4>
+                            <p class="resume-description">
+                                I love to get outside to hike, visit farm stands, and explore the hidden swimming holes of the Catskill mountains.
+                            </p>
+                        </div>
+
+                        <div class="resume-item">
+                            <h4>Current Events</h4>
+                            <p class="resume-description">
+                                My frist job our of college was at a think tank focusing on technology policy. Only those who have an interest in current events and policy know what a think tink actually does. 
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Connect</h2>
+                <p class="description" style="max-width: 500px; margin: 0 auto; color: var(--text-secondary);">
+                    I'm always open to collborations, opportunities, contract work, travel tips, or discussing the latest wellness trends. 
+                </p>
+                <p>    
+                Feel free to reach out to me.
+                </p>
+                
+                <div class="contact-links">
+                  
+                    <a href="https://www.linkedin.com/in/alexisfearon" class="contact-link">
+                        💼 LinkedIn
+                    </a>
+                
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="credit">
+            <div class="container">
+             <p class="description" style="margin: 0 auto;"><i>This site was vibe coded with  <a href="https://claude.ai/"> Claude </a> </i></p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
