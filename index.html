@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Lexi Fearon</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -41,7 +41,7 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--light-gray);
             z-index: 100;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             transition: all 0.3s ease;
         }
 
@@ -95,50 +95,52 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        /* Hero Section - Redesigned */
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 2rem 2rem 3rem 2rem;
             display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 4rem;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
             align-items: center;
-            min-height: 70vh;
+            min-height: 60vh;
         }
 
         .hero-content h1 {
             font-family: 'Crimson Text', serif;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 600;
             color: var(--navy-blue);
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            margin-bottom: 0.8rem;
+            line-height: 1.1;
         }
 
         .hero-content .subtitle {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--accent-blue);
             font-weight: 300;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .hero-content .description {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             max-width: 500px;
+            line-height: 1.5;
         }
 
         .hero-image {
             position: relative;
+            justify-self: end;
         }
 
         .profile-image {
-            width: 280px;
-            height: 350px;
+            width: 400px;
+            height: 280px;
             background: linear-gradient(135deg, var(--light-gray) 0%, var(--off-white) 100%);
-            border-radius: 12px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -146,7 +148,14 @@
             font-size: 0.9rem;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
         }
 
         .profile-image::before {
@@ -157,25 +166,26 @@
             right: 0;
             height: 4px;
             background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            z-index: 1;
         }
 
         /* Geometric accent */
         .geometric-accent {
             position: absolute;
-            top: -20px;
-            right: -20px;
+            top: -15px;
+            right: -15px;
             width: 80px;
-            height: 80px;
+            height: 60px;
             background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
             border-radius: 50%;
-            opacity: 0.1;
+            opacity: 0.12;
             z-index: -1;
         }
 
         /* Resume Section */
         .resume-section {
             background: var(--off-white);
-            padding: 4rem 0;
+            padding: 3rem 0;
         }
 
         .container {
@@ -186,10 +196,10 @@
 
         .section-title {
             font-family: 'Crimson Text', serif;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             color: var(--navy-blue);
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             position: relative;
         }
 
@@ -208,15 +218,15 @@
         .resume-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .resume-card {
             background: var(--white);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
             border-top: 4px solid var(--accent-blue);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -227,19 +237,19 @@
 
         .resume-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
         }
 
         .resume-card h3 {
             font-family: 'Crimson Text', serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--navy-blue);
             margin-bottom: 1rem;
         }
 
         .resume-item {
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.2rem;
             border-bottom: 1px solid var(--light-gray);
         }
 
@@ -251,14 +261,14 @@
         .resume-item h4 {
             color: var(--text-primary);
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .resume-meta {
             color: var(--accent-blue);
             font-size: 0.9rem;
             font-weight: 500;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .resume-description {
@@ -270,22 +280,22 @@
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 0.7rem;
             margin-top: 1rem;
         }
 
         .skill-tag {
             background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
             color: var(--white);
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
+            padding: 0.3rem 0.7rem;
+            border-radius: 18px;
             font-size: 0.8rem;
             font-weight: 500;
         }
 
         /* Contact Section */
         .contact {
-            padding: 4rem 0;
+            padding: 3rem 0;
             text-align: center;
         }
 
@@ -293,14 +303,14 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
 
         .contact-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 1rem 1.5rem;
+            padding: 0.8rem 1.2rem;
             background: var(--white);
             color: var(--text-primary);
             text-decoration: none;
@@ -314,7 +324,13 @@
             border-color: var(--accent-blue);
             color: var(--accent-blue);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(66, 153, 225, 0.2);
+            box-shadow: 0 8px 16px rgba(66, 153, 225, 0.2);
+        }
+
+        .credit {
+            padding: 1.5rem 0;
+            text-align: center;
+            background: var(--off-white);
         }
 
         /* Responsive Design */
@@ -322,16 +338,23 @@
             .hero {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 2rem;
+                gap: 1.5rem;
+                padding: 1.5rem 2rem 2.5rem 2rem;
             }
 
             .hero-content h1 {
                 font-size: 2.5rem;
             }
 
+            .profile-image {
+                width: 100%;
+                max-width: 350px;
+                height: 250px;
+            }
+
             .resume-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
             }
 
             .nav-links {
@@ -388,7 +411,7 @@
             </div>
             <div class="hero-image">
                 <div class="profile-image">
-                    Your photo goes here
+                    <img src="https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/530368300_10161076104146017_863492190976269459_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=frt3gzQML60Q7kNvwEPl1s2&_nc_oc=Adl849-OQPZ3h6ys13EAf80vTLy7wJpSAcGhWIDEl8GIKsc0NCtUgtlIzoPDIgOA7gQ&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=Jar_ouNt3E2SesWOa0kTPQ&oh=00_AfVE-gi4qRBvOkENtSPWuKxDTfmk7JAIMNmMOKAQCykY_A&oe=689EE154" alt="Profile photo">
                     <div class="geometric-accent"></div>
                 </div>
             </div>
@@ -461,7 +484,7 @@
         <h3>Featured Speaking & Writing &#x1F4E3;</h3>
                         <div class="resume-item">
                             <h4>SXSW 2019 Panelist</h4>
-                            <div class="resume-meta">SXSW 2019 panelist on “Privacy by Design and Directive,” a workshop on GDPR and CCPA to learn what CCPA and GDPR mean for small businesses, and how to build in the required safeguards for the personal info.</div>
+                            <div class="resume-meta">SXSW 2019 panelist on "Privacy by Design and Directive," a workshop on GDPR and CCPA to learn what CCPA and GDPR mean for small businesses, and how to build in the required safeguards for the personal info.</div>
                              <p class="resume-description">
          <a href="https://schedule.sxsw.com/2019/events/PP92740">
                         SXSW Panel 
@@ -579,7 +602,7 @@
             </div>
         </section>
 
-        <section id="contact" class="credit">
+        <section class="credit">
             <div class="container">
              <p class="description" style="margin: 0 auto;"><i>This site was vibe coded with  <a href="https://claude.ai/"> Claude </a> </i></p>
             </div>
